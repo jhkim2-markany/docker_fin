@@ -1,0 +1,18 @@
+FROM node:12.18.1
+# Create app directory
+WORKDIR /app/server
+# Install app dependencies
+ENV PATH /app/server/node_modules/.bin:$PATH
+COPY package*.json ./
+RUN npm ci -qy
+RUN npm install
+# RUN npm install bcryptjs@2.4.3 --save
+# RUN npm install nodemon@2.0.4 --save
+
+# Copy app source code
+COPY . .
+
+#Expose port and start application
+EXPOSE 5000
+
+CMD [ "npm","start" ]
