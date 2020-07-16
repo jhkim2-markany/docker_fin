@@ -312,3 +312,14 @@ https://zzsza.github.io/development/2018/04/17/docker-kubernetes/
 
 
 https://ooeunz.tistory.com/69?category=821628
+
+
+
+-----------------------------------------------------------------
+
+client - node_modules - react-scripts > config > webpackdevserver.config.js
+에서 public을 수정
+
+    public: "0.0.0.0:3000",
+    // public: "localhost:3000",
+    // public: allowedHost,
