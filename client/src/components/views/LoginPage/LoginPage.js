@@ -4,6 +4,7 @@ import { loginUser } from "../../../_actions/user_action";
 import { withRouter } from "react-router-dom"
 
 function LoginPage(props) {
+  // console.log(host.docker.internal);
   const dispatch = useDispatch();
 
   const [Email, setEmail] = useState("");
