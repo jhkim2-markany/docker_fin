@@ -536,6 +536,19 @@ p:80으로 했는데도 3000 포트로 연결됨. 도커파일에서 export를 8
 도커안에 컨테이너에서 호스트 --network 호스트 확인해보기
 
 도커허브랑 깃허브랑 연동하기 **
+
+
+PM2 서버를 이용해서 배포하기는 방법
+https://novemberde.github.io/2017/04/02/Docker_6.html
+https://medium.com/extales/node-js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%A5%BC-docker%EB%A1%9C-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0-3-ce7cf71ce874
+https://netframework.tistory.com/entry/nodejs-pm2-git%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-Dockfile-%EA%B5%AC%EC%84%B1
+
+
+PM2 알아보기
+https://www.google.com/search?q=PM2%EB%9E%80%3F&oq=PM2%EB%9E%80%3F&aqs=chrome..69i57j0l4j69i58.2335j0j7&sourceid=chrome&ie=UTF-8
+
+
+PM2를 구글검색해보기
 ---------------------------------------------------------------------------------------------------------------
 
 ???  아직 검증 안된 칭구들 
