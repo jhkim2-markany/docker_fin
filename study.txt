@@ -1,0 +1,246 @@
+https://demun.github.io/vscode-tutorial/shortcuts/ 단축키 설명
+환경설정
+
+{ "emmet.includeLanguages": { "javascript": "javascriptreact" } }
+
+ctrl+, 해서 설정 들어가서
+1.작업영역(WorkSpace setting)
+2.Include Languages > setting.json 편집 클릭
+3. 위 텍스트 복사 붙여넣기
+
+div>form>(labe+index)*2 이런식으로 쓰고 tab 누르면
+
+<div>
+      <form action="">
+        <labe></labe>
+        <index></index>
+        <labe></labe>
+        <index></index>
+      </form>
+    </div>
+
+컨트롤 K+F 정렬
+
+컨트롤 +p 컨트롤 +o 검색
+
+git!! 
+
+git --version 으로 다운로드 확인
+
+처음에 git 저장소를 만들어주기 위해서 git init을 한다.
+
+git의 상태를 보기 위해서는 git status를 상용한다.
+
+git add . 으로 모든 파일을 git에 보낼 수 있다.
+
+다시 git status로 확인할 수 있다.
+
+일반반적으로 깃 저장소에 올릴떄는 라이브러리는 보내지 않는다.
+
+package.json의 dependencies를 보고 다시 install 해준다.
+
+라이브러리를 뺴고 올리기 위해서는 .gitignore를 만들고,
+
+node_modules라고 작성한다.
+
+git에 모듈이 올라갔을 경우 git rm --cached node_modules -r을 사용하여
+
+git에 있는 모듈을 제거한다.
+
+git commit -m "처음 저장소에 올림" 을 통해서 깃 로컬저장소에 올라감.
+
+SSH(Secure Shell)를 이용해 git을 git hub에 연결하기!  
+
+git push를 이용해서 git hub에 올리기
+
+ssh 설정 방법!
+
+ssh key를 만들기 위해서 https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+를 들어간다. 
+                                                //git hub 이메일 
+git bash를 열고 ssh-keygen -t rsa -b 4096 -C "enddl0121@naver.com" 을 입력한다. 
+
+SSH Agent를 background에 킨다 
+
+$ # start the ssh-agent in the background
+$ eval $(ssh-agent -s) 를 치면 Agent pid값이 나온다.
+
+https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
+
+를 통해서 ssh key를 git hub account에 올린다.
+
+git hub에 푸쉬하는법 push
+git remote add origin https://github.com/KJH940526/boiler-plate.git 깃허브 레파지토리 위치저장
+//fatal: remote origin already exists 라는 오류가 나올떄가 있는데
+// 이미 remote origin이 존재하기 떄문에 지워줘야 한다.
+// git remote rm origin 하면 지워진다.
+그리고 다시 
+git remote add origin https://github.com/KJH940526/boiler-plate.git 를 통해 등록하고
+
+git push -u origin master 를 통해서 push 하면 된다.
+
+
+
+// 그 이후부터
+
+git add .
+git commit -m "깃내용"
+git push -u origin master
+
+
+---19강
+hoc는 컴포넌트안에 있는 함수로 다른 컴포넌트를 가지는 함수
+            //자격 -> 함수 함수에 따라 다른것도 가능
+ex) hoc에서 자격이 되면 관리자 페이지로 보내고 아니면 다른 페이지로 보낸다.
+ex) 로그인된 사람만 들어오고 아니면 다른 페이지로 보낸다.
+
+--확장프로그램 es7치면 나오는 react 추가 확장프로그램 설치하기
+--rfce로 함수형 컴포넌트 만들기
+
+//boiler plate react 구조 설명
+_actions, _reducers => Redux를 위한 폴더들
+
+components/views -> 이 안에 Page들을 넣는다.
+
+components/views/Sections => 이 안에는 해당 페이지에 
+관련된 css파일이나, component 들을 넣는다.
+
+App.js Routring 관련 일을 처리한다.
+Config.js 환경 변수같은 것들을 정하는 곳이다.
+
+hoc-> Higher Order Component의 약자로 설명은 위에..
+자세한건 따로 공부하기
+
+utils 여러 군데에서 쓰일수 있는 것들을 이 폴더에 넣어서 어디서든
+꺼내 쓸수 있게 하기 위함
+
+
+
+
+//22장
+CORS 이슈, Proxy 설정
+Cross-Origin Resource Sharing (CORS)보안을 위해서 접속이 막히는데
+을 해결하기 위해서 Proxy 설정을 해야한다.
+그러기 위해서는 추가로 모듈을 설치해줘야한다.
+npm install http-proxy-middleware --save
+https://create-react-app.dev/docs/proxying-api-requests-in-development/
+
+
+//23장
+Porxy Server
+1)IP를 Proxy Server에서 임의로 바꿔 버릴수 있다.
+그래서 인터넷에서 접근하는 사람의 IP를 모르게 된다.
+2) 보내는 데이터를 임의로 바꿀수 있다.
+
+--> 사용하는 이유 EX) 방화벽기능, 웹필터 기능, 캐쉬데이터, 공유데이터 제공
+자세한건 추가공부
+
+
+//24장 Concurrently를 이용해서를 이용해서 프론트, 백서버 한번에 켜기
+npm install concurrently --save
+root디렉토리에 있는 package.json의 script에
+ "dev": " concurrently \"npm run backend\" \"npm run start --prefix client\" "를 
+ 추가한다.
+
+
+ // 25장 CSS Framwork
+CSS Framwork 종류 for React js
+1. Material UI
+2. React Bootstrap
+3. Semantic UI
+4. Ant Design(Antd)  -- 이번 강의에서 사용할것 /// 단점: 용량이 큼 // 장점: 쓰기 편한고, 스타일이 깔끔하다.
+5. Materialize
+//리액터의 디펜더시 이기 떄문에 클라이언트로 간다
+npm install antd --save
+client/src/index.js에서 import 'antd/dist/antd.css'를 import 시켜준다
+
+
+//26장 Redux 기초
+Redux is a predictable state container for JavaScript apps.
+(상태 관리 라이브러리)
+
+Props와 State 비교하기
+
+Props는 properties의 줄임말
+부모 컴포넌트가 있고 자식컴포넌트가 있을 떄 컴포넌트 간의 무언가를 주고 받을때는 
+Props를 써야하고, Props의 소통하는 방식은 위에서 아래로 
+즉, 부모컴포넌트에서 자식컴포넌트 로만 전송이 가능하다.
+부모컴포넌트에서 자식컴포넌트로 1이라는 값을 줬을때 자식컴포넌트 안에서는 props는 변할수 없다.
+props는 읽기전용이다.
+
+State는 부모컴포넌트에서 자식컴포넌트로 주는게 아니고,
+컴포넌트 안에서 데이터를 교환하거나 전달을 할 떄 state를 사용해야한다.
+state를 언제든지 변할수 있다. state가 변하면 re-render가 된다.
+
+Redux는 State를 관리하는 것
+
+Redux 데이터 Flow(stric unidirectional data flow) 한방향으로 데이터가 흐른다.
+React Component -> Dispatch(action) -> Action -> REDUCER -> STORE -> Subscribe -> 다시 React Component로 간다.
+
+Action은 객체로 이루어져있는데 무엇이 일어났는지 설명하는 객체이다.
+//동영상 7분 10초
+
+Reducer는 이전 State와 Action object를 받은 후에 next state를 return 한다.
+
+Store는 state를 저장하고 관리한다. 
+store의 state를 변경하기 위해서는 반드시 Dispatch를 이용한 Redux 데이터 Flow를 통해서만
+변경이 가능하다.
+
+
+
+
+//Redux UP!! 27강
+React에서 사용하기 위해서 Client(리액트) 터미널로 가서
+npm install redux react-redux redux-promise redux-thunk --save 를 설치한다.
+redux-promise 
+redux-thunk
+
+//2분 18초 다시 한번 들어보기
+Action은 객체형식이여야 한다. 그래야 STORE에서 받을수 있는데, 
+항상 객체형식을 받는게 아니라 promise형식이나 funcion을 받을때도 있다.
+redux-promise와 redux-thunk를 미들웨이로로 받아서 전달한다.
+redux-thunk는 funcion을 받을수 있게해주고,
+redux-promise를 promise를 받을수 있게해준다.
+
+
+//28강 React Hooks(다시 듣기)
+Class Component는 제공하는 기능이 많고, 코드가 길어지고, 복잡해지고, 속도가 느려진다.
+Funcion Component는 제공하는 기능이 적고, 코드가 줄어들고, 간결해지며, 속도가 빨라진다.
+
+Class Component를 이용할 때 
+Mounting과정에서 constructor -> render -> componentDidMount 과정이 일어나고,
+Updating에서는 render -> componentDidUpdate의 과정이 일어나고,
+Unmounting과정에서는 componentWillUnMount 과정이 일어난다.
+따라서 Class 컴포넌트를 이용하다가
+react hooks가 업데이트가 되고나서 Class Component에서만 제공된 기능들인
+라이프사이클, setState 같은것을 함수형 컴포넌트에서도 사용이 가능해졌다.
+
+class형 component에서는 constructor를 통해서 state를 생성하고, 여러 기능을 통해 변경하였으나
+react-hooks의 useState를 통해서 state의 변경 및 생성이 가능해졌다.
+
+
+componentDidMount(페이지가 생성될 떄)를 이용해서 데이터를 가져오거나 여러가지 기능을 했으나,
+hook의 useEffect를 이용해서 똑같이 사용이 가능해졌다.
+
+//29강 로그인 페이지 만들기
+Formik과 Yup이란 라이브러리를 사용해서 좀 더 다이나믹하게 만들수 있다.
+
+//33장 인증체크
+페이지는 권한을 통해서 여러가지로 나눌수 있는데
+예를 들면 아무나 진입 가능한 페이지, 로그인한 회원만 진입 가능한 페이지,
+로그인 한 회원은 진입 못하는 페이지, 관리자만 진입 가능한 페이지 등으로 나눌 수 있다.
+
+HOC는 함수이다. 함수지만 다른 컴포넌트를 받은 다음에 새로운 컴포넌트를 리턴하는 함수이다.
+
+
+Auth(HOC)는 Backend 서버에 요청(request)을 보내고 상태정보를 가지고 Auth(HOC)로 가지고 온다.
+상태정보는 로그인유저인지, 관리자인지 같은 것을 의미한다.
+
+
+실행시 다음과 같은 경고문이 뜨는데? 이에 대해서는 다음에 알아보기
+
+[1] i ｢wds｣: Project is running at http://0.0.0.0:3000/
+[1] i ｢wds｣: webpack output is served from
+[1] i ｢wds｣: Content not from webpack is served from C:\Users\82103\Desktop\jwtlecture\client\public
+[1] i ｢wds｣: 404s will fallback to /

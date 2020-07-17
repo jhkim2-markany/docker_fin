@@ -1,0 +1,70 @@
+리액트 배포
+
+우분투 인스턴스 
+인바운드 규칙
+ssh
+http https
+3000
+3002
+몽고디비 포트번호
+
+모바엑스텀 로그인
+
+ssh에 remote host => ipv4 퍼블릭
+
+advanced ssh settings -> use private key => 키파일 주기
+
+login us => ubuntu
+
+sudo apt update && sudo apt upgrade
+하면 선택창이 나오는데 install the packege maintainer's version을 설치했다. 
+
+키페어없게 설정
+sudo sed -i 's/^PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
+
+재시작
+
+sudo /etc/init.d/ssh restart
+
+ubuntu비번설정
+sudo passwd ubuntu
+
+
+루트 관리자 계정 생성 > sudo passwd 
+루트 관리자 로그인 > su -
+
+//여기서부터 계속 루트 계정
+
+apt-get update
+apt-get upgrade 한번 더 하기
+
+
+나갔다 들어와서 비밀번호로 로그인되는지 확인하기(여기서 우분투에서 해도 되지만, 루트계정에서 했을때 가능)
+//우분투는 안해봄
+
+sudo apt-get install git : 깃 설치
+
+git config --global user.name "KJH940526"
+: 유저등록 (깃허브에 등록된)
+
+git config --global user.email "enddl0121@naver.com" 
+: 유저 메일주소등록 (깃허브에 등록된)
+
+git init : 깃 폴더 등록(클로닝 하기 위해서)
+
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - 뭔지 모르지만 환경설정
+
+sudo apt install nodejs : nodejs 설치 
+node -e "console.log('Running Node.js ' + process.version)" : nodeJS 버전확인
+
+//깃클론
+git clone https://github.com/KJH940526/레파지토리 : 깃에서 내가 올려둔 프로젝트를 불러온다. 
+레파지토리 폴더로 이동한다. (clone한 프로젝트 디렉토리에 npm을 설치해야 하므로)
+
+sudo rm -rf node_modules : 에러나므로 모듈들 삭제 
+sudo npm install : 설치
+하면 실행된다
+
+sudo apt install npm : npm설치
+
+서버실행 ex) npm start

@@ -1,0 +1,18 @@
+clinet 에서 정보를 보내면 server에서 받는다.
+
+Body-parser 디펜던시를 통해서 clinet가 주는 데이터를
+server에서 받을수 있다.
+
+https://velog.io/@yejinh/express-%EB%AF%B8%EB%93%A4%EC%9B%A8%EC%96%B4-bodyParser-%EB%AA%A8%EB%93%88
+
+
+
+13장 
+Auth 기능 만들기(권한 부여)
+
+
+14장
+로그 아웃 기능 만들기 
+로그 아웃 하려는 유저를 데이터 베이스에서 찾아서
+그 유저의 토큰을 지워준다.
+기능을 뺴앗기 위해서
