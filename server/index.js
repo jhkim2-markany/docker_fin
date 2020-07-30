@@ -41,7 +41,9 @@ mongoose //config는 mongoURI가 들어있음 Import 함
   .then(() => console.log("DB Connected..."))
   .catch((err) => console.log(err));
 
-app.get("/", (req, res) => res.send("Hi"));
+app.get("/", (req, res) => {
+  res.send("Hi")
+});
 
 //여기서 요청을 받은다음에 다시 보내준다.
 app.get("/api/hello", (req, res) => {
