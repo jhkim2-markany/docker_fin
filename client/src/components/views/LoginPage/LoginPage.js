@@ -14,10 +14,13 @@ function LoginPage(props) {
     setEmail(event.currentTarget.value);
   };
 
+
   const onPasswordHandler = (event) => {
     setPassword(event.currentTarget.value);
   };
 
+
+  
   const onSubmitHandler = (event) => {
     event.preventDefault();
     console.log("Email", Email);

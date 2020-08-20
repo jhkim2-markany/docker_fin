@@ -2,7 +2,8 @@
 const { User } = require('../models/User');
 
 let auth = (req, res, next) => {
-
+  console.log(req.cookies)
+  console.log("0번 클라이언트에 있는 토큰: ",req.cookies.x_auth)
     //인증처리가 이루어지는 곳
 
 
@@ -23,11 +24,6 @@ let auth = (req, res, next) => {
         next(); //next는 하는 이유는 미드웨어에서 다음 단계로 가도록한다.
 
     })
-
-    //3) 유저가 있응면 인증 성공
-
-
-    //4) 유저가 없으면 인증 실패
 
 }
 

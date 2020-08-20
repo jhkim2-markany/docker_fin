@@ -45,6 +45,7 @@ app.get("/", (req, res) => {
   res.send("Hi")
 });
 
+
 //여기서 요청을 받은다음에 다시 보내준다.
 app.get("/api/hello", (req, res) => {
   res.send("안녕하세요~"); //res 다시 프론트로 보냄
@@ -56,6 +57,7 @@ app.post("/api/users/register", (req, res) => {
 
   //req.body 안에는 json 형식으로 들어있다.
   const user = new User(req.body);
+  
 
   //save는 몽고db에서 오는 메소드
   user.save((err, userInfo) => {
@@ -69,6 +71,7 @@ app.post("/api/users/register", (req, res) => {
 app.post("/api/users/login", (req, res) => {
   //요청된 이메일을 데이터베이스에 있는지 찾는다. //findeOne => 몽고디비에서 지원하는 메소드
   User.findOne({ email: req.body.email }, (err, user) => {
+    console.log(req.body.email)
     if (!user) {
       return res.json({
         loginSuccess: false,
